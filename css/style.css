@@ -1,0 +1,31 @@
+body {
+  font-family: "Microsoft JhengHei", sans-serif;
+  background: #222;
+  color: white;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+}
+
+input, button {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+}
+
+.app-box {
+  display: none;
+}
+
+.progress-container {
+  background: #444;
+  height: 10px;
+}
+
+.progress-bar {
+  background: yellow;
+  height: 100%;
+  width: 0%;
+}

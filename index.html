@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>荷包守門員 - 智慧理財助手</title>
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+<div class="overlay">
+  <div class="container">
+    <h1>💰 荷包守門員</h1>
+
+    <div id="authBox">
+      <input type="email" id="email" placeholder="信箱">
+      <input type="password" id="password" placeholder="密碼">
+      <button onclick="handleLogin()">登入</button>
+      <button onclick="handleSignUp()">註冊</button>
+    </div>
+
+    <div id="appBox" class="app-box">
+      <button class="logout-btn" onclick="handleLogout()">登出</button>
+
+      <input type="month" id="monthFilter" onchange="loadData()">
+
+      <div class="card">
+        本月支出：$<span id="monthSpend">0</span> /
+        $<span id="budgetVal">10000</span>
+        <div class="progress-container">
+          <div id="budgetBar" class="progress-bar"></div>
+        </div>
+        本月存錢：$<span id="monthSave">0</span>
+      </div>
+
+      <div class="type-toggle">
+        <button id="modeExp" onclick="setMode('expense')">記支出</button>
+        <button id="modeSave" onclick="setMode('saving')">記存錢</button>
+      </div>
+
+      <input id="recordInput" placeholder="如: 晚餐 120">
+      <button onclick="addRecord()">新增</button>
+
+      <canvas id="myChart"></canvas>
+
+      <table>
+        <tbody id="recordTable"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script src="js/firebase.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/records.js"></script>
+<script src="js/chart.js"></script>
+<script src="js/ui.js"></script>
+</body>
+</html>
